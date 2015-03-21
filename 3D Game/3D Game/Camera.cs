@@ -57,22 +57,22 @@ namespace _3D_Game
         public override void Update(GameTime gameTime)
         {
             // TODO: Add your update code here
-            if (Keyboard.GetState().IsKeyDown(Keys.W))
+            /*if (Keyboard.GetState().IsKeyDown(Keys.W))
             {
                 cameraPosition += cameraDirection * speed;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.S))
             {
                 cameraPosition -= cameraDirection * speed;
-            }
+            }*/
 
             if (Keyboard.GetState().IsKeyDown(Keys.A)) // zmienic znaki
             {
-                cameraPosition += Vector3.Cross(cameraDirection, cameraUp) * speed;
+                cameraPosition -= Vector3.Cross(cameraDirection, cameraUp) * speed;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.D))
             {
-                cameraPosition -= Vector3.Cross(cameraDirection, cameraUp) * speed;
+                cameraPosition += Vector3.Cross(cameraDirection, cameraUp) * speed;
             }
 
             //Yaw rotation

@@ -40,7 +40,7 @@ namespace _3D_Game
         protected override void Initialize()
         {
             // Initialize Camera
-            camera = new Camera(this, new Vector3(0, 0, 50),
+            camera = new Camera(this, new Vector3(0, 0, -50),
                 Vector3.Zero, Vector3.Up);
             Components.Add(camera);
 

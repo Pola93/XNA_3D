@@ -19,6 +19,7 @@ namespace _3D_Game
     {
         // List of models
         List<BasicModel> models = new List<BasicModel>();
+        List<BasicModel> ControllableModels = new List<BasicModel>();
 
         public ModelManager(Game game)
             : base(game)
@@ -43,6 +44,10 @@ namespace _3D_Game
             models.Add(new BasicModel(
                 Game.Content.Load<Model>(@"models\spaceship")));
 
+            ControllableModels.Add(new SpinningEnemy(
+                Game.Content.Load<Model>(@"models\spaceship"), Vector3.Zero,
+                new Vector3(0,0, 10), Vector3.Up));
+
             base.LoadContent();
         }
 
@@ -57,6 +62,10 @@ namespace _3D_Game
             {
                 models[i].Update();
             }
+            for (int i = 0; i < ControllableModels.Count; ++i)
+            {
+                ControllableModels[i].Update();
+            }
 
             base.Update(gameTime);
         }
@@ -65,6 +74,10 @@ namespace _3D_Game
         {
             // Loop through and draw each model
             foreach (BasicModel bm in models)
+            {
+                bm.Draw(((Game1)Game).camera);
+            }
+            foreach (BasicModel bm in ControllableModels)
             {
                 bm.Draw(((Game1)Game).camera);
             }
