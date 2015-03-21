@@ -25,7 +25,7 @@ namespace _3D_Game
         Vector3 cameraDirection;
         Vector3 cameraUp;
 
-        float speed = 3;
+        float speed = 2;
 
         MouseState prevMouseState;
 
